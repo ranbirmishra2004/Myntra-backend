@@ -10,7 +10,7 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
 app.use(cors({
-  origin: "https://visionary-cocada-21808e.netlify.app/",
+  origin: "https://visionary-cocada-21808e.netlify.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -18,7 +18,8 @@ app.use(cors({
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/myntra')
+mongoose.connect(process.env.MONGO_URI)
+
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => {
   console.error('MongoDB connection error:', err); // Log the full error object
