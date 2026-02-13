@@ -9,7 +9,12 @@ const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://visionary-cocada-21808e.netlify.app/",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Connect to MongoDB
